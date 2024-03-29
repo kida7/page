@@ -17,6 +17,10 @@ const WebexPage = () => {
           await delay(100);
           window.history.back();
         }
+        new window.PalmServiceBridge().call(
+          "luna://com.webos.applicationManager/closeByAppId",
+          `{"id":"test-login-webex"}`
+        );
         await delay(1000);
         //@ts-ignore
         new window.PalmServiceBridge().call(
