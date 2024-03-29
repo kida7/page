@@ -13,7 +13,11 @@ const WebexPage = () => {
     }
     async function backToApp() {
       if (code) {
-        history.go(1-history.length)
+        while(!location.href.startsWith("file://")) {
+            await delay(10)
+            history.back();
+        }
+        await delay(10)
         //@ts-ignore
         new window.PalmServiceBridge().call(
           "luna://com.webos.applicationManager/closeByAppId",
