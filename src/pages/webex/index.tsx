@@ -6,13 +6,22 @@ const WebexPage = () => {
   
   useEffect(() => {
     const code = router.query.code as string;
-
-    if (code) {
-      //@ts-ignore
-      new window.PalmServiceBridge().call('luna://com.webos.applicationManager/closeByAppId', `{"id":"test-login-webex"}`);
-      //@ts-ignore
-      new window.PalmServiceBridge().call('luna://com.webos.applicationManager/launch', `{"id":"test-login-webex", "params": {"code":"${code}"}}`);
+    function delay(ms) {
+      return new  Promise(resolve=>{
+        setTimeout(resolve,ms)
+      })
     }
+    async function backToApp(){
+      if (code) {
+        while (!window.location.href.startsWith("file:///")) {
+          await delay(1000);
+          window.history.back();
+        }
+        //@ts-ignore
+        new window.PalmServiceBridge().call('luna://com.webos.applicationManager/launch', `{"id":"test-login-webex", "params": {"code":"${code}"}}`);
+      }
+    }
+    backToApp();
   }, [router.query.code]);
 
   return null;
