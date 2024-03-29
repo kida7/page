@@ -8,7 +8,8 @@ const WebexPage = () => {
     const code = router.query.code as string;
 
     if (code) {
-      window.close();
+      //@ts-ignore
+      new window.PalmServiceBridge().call('luna://com.webos.applicationManager/closeByAppId', `{"id":"test-login-webex"}`);
       //@ts-ignore
       new window.PalmServiceBridge().call('luna://com.webos.applicationManager/launch', `{"id":"test-login-webex", "params": {"code":"${code}"}}`);
     }
