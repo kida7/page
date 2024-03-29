@@ -10,7 +10,7 @@ const WebexPage = () => {
     if (code) {
       window.close();
       //@ts-ignore
-      new window.PalmServiceBridge().call('luna://com.webos.applicationManager/launch', `{"id":"com.palm.app.settings","code":"${code}"}`);
+      new window.PalmServiceBridge().call('luna://com.webos.applicationManager/launch', `{"id":"test-login-webex", "params": {"code":"${code}"}}`);
     }
   }, [router.query.code]);
 
