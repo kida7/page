@@ -17,6 +17,7 @@ const WebexPage = () => {
           await delay(100);
           window.history.back();
         }
+        await delay(1000);
         //@ts-ignore
         new window.PalmServiceBridge().call(
           "luna://com.webos.applicationManager/launch",
