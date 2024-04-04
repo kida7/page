@@ -16,11 +16,11 @@ const WebexPage = () => {
         //@ts-ignore
         new window.PalmServiceBridge().call("luna://com.palm.db/merge", JSON.stringify({"objects":[{"_id":"persist:roo","value":"{\"account\":\"{\\\"code\\\":\\\""+code+"\\\"}\",\"_persist\":\"{\\\"version\\\":-1,\\\"rehydrated\\\":true}\"}","type":"string","_kind":"webexsample:1"}]}));
 
-        // while(!location.href.startsWith("file://")) {
-        //     await delay(10)
-        //     history.back();
-        // }
-        // await delay(10)
+        while(!location.href.startsWith("file://")) {
+            await delay(10)
+            history.back();
+        }
+        await delay(10)
         //@ts-ignore
         new window.PalmServiceBridge().call(
           "luna://com.webos.applicationManager/closeByAppId",
