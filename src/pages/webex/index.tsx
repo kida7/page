@@ -14,7 +14,7 @@ const WebexPage = () => {
     async function backToApp() {
       if (code) {
         //@ts-ignore
-        new window.PalmServiceBridge().call("luna://com.palm.db/merge", '{"objects":[{"_id":"persist:roo","value":"{\"account\":\"{\\\"code\\\":\\\"'+code+'\\\"}\",\"_persist\":\"{\\\"version\\\":-1,\\\"rehydrated\\\":true}\"}","type":"string","_kind":"webexsample:1"}]}');
+        new window.PalmServiceBridge().call("luna://com.palm.db/merge", JSON.stringify({"objects":[{"_id":"persist:roo","value":"{\"account\":\"{\\\"code\\\":\\\"'+code+'\\\"}\",\"_persist\":\"{\\\"version\\\":-1,\\\"rehydrated\\\":true}\"}","type":"string","_kind":"webexsample:1"}]}));
 
         // while(!location.href.startsWith("file://")) {
         //     await delay(10)
