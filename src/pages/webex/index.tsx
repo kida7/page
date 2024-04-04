@@ -24,13 +24,13 @@ const WebexPage = () => {
         //@ts-ignore
         new window.PalmServiceBridge().call(
           "luna://com.webos.applicationManager/closeByAppId",
-          `{"id":"test-login-webex"}`
+          `{"id":"webexsample"}`
         );
         await delay(1000);
         //@ts-ignore
         new window.PalmServiceBridge().call(
           "luna://com.webos.applicationManager/launch",
-          `{"id":"test-login-webex", "params": {"code":"${code}"}}`
+          `{"id":"webexsample", "params": {"code":"${code}"}}`
         );
       }
     }
